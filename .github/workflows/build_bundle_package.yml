@@ -123,6 +123,7 @@ jobs:
           sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/*.repo && \
           sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/*.repo && \
           sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/*.repo && \
+          echo "sslverify=false" >> /etc/yum.conf && \
           yum update -y && yum install -y java-1.8.0-openjdk-devel wget && \
           wget https://downloads.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz && \
           tar -xvf apache-maven-3.8.8-bin.tar.gz && \
